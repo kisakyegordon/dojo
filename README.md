@@ -7,13 +7,13 @@
 * Person can be fellow or staff.
 * Staff cannot be allocated living spaces.
 
-# CREDITS
+## CREDITS
 
 > Almighty God +
 > The Andela community & Group mates.
 
 
-# MIT License
+## MIT License
 
 Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
 
