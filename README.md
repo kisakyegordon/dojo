@@ -1,4 +1,11 @@
-# Structured documents
+# DOJO ROOM ALLOCATION TO STAFF & FELLOWS
+
+###CONDITIONS
+
+* Office has capacity of 6 people.
+* Living space has capacity of 4 people.
+* Person can be fellow or staff.
+* Staff cannot be allocated living spaces.
 
 Sometimes it's useful to have different levels of headings to structure your documents. Start lines with a `#` to create headings. Multiple `##` in a row denote smaller heading sizes.
 
@@ -6,7 +13,35 @@ Sometimes it's useful to have different levels of headings to structure your doc
 
 You can use one `#` all the way up to `######` six for different heading sizes.
 
-If you'd like to quote someone, use the > character before the line:
+# CREDITS
 
-> Coffee. The finest organic suspension ever devised... I beat the Borg with it.
-> - Captain Janeway
+> Almighty God
+> The Andela community & Group mates.
+
+
+# MIT License
+
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software
+without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to
+whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice shall
+be included in all copies or substantial portions of the
+Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
