@@ -1,5 +1,6 @@
 import unittest
 from test_room import RoomTests
+from test_person import TestPerson
 
 
 

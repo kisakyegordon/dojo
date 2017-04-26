@@ -2,8 +2,6 @@
 This example uses docopt with the built in cmd module to demonstrate an
 interactive command application.
 Usage:
-    the_dojo tcp <host> <port> [--timeout=<seconds>]
-    the_dojo serial <port> [--baud=<n>] [--timeout=<seconds>]
     the_dojo add_room <room_type> <room_name>...
     the_dojo add_person <person_name> (FELLOW|STAFF) [wants_accommodation]
     the_dojo (-i | --interactive) 
@@ -50,8 +48,8 @@ def docopt_cmd(func):
 
 
 class Thedojo (cmd.Cmd):
-    intro = 'The Dojo Awaits You!!' \
-        + ''
+    intro = '\n' + '*****************************************' + '\n' + '' + 'THE DOJO AWAITS YOU' + '\n' + '\n' + 'WELCOME' + '\n' + '*****************************************' + '\n' \
+        + '\n' 'TYPE "help" FOR A LIST OF THE COMMANDS YOU CAN RUN --- OR "quit" TO EXIT' + '\n'
     prompt = '(the_dojo) '
     file = None
 
