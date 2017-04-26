@@ -1,21 +1,15 @@
 # DOJO ROOM ALLOCATION TO STAFF & FELLOWS
 
-###CONDITIONS
+## CONDITIONS
 
 * Office has capacity of 6 people.
 * Living space has capacity of 4 people.
 * Person can be fellow or staff.
 * Staff cannot be allocated living spaces.
 
-Sometimes it's useful to have different levels of headings to structure your documents. Start lines with a `#` to create headings. Multiple `##` in a row denote smaller heading sizes.
-
-### This is a third-tier heading
-
-You can use one `#` all the way up to `######` six for different heading sizes.
-
 # CREDITS
 
-> Almighty God
+> Almighty God +
 > The Andela community & Group mates.
 
 
