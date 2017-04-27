@@ -2,7 +2,7 @@
 This example uses docopt with the built in cmd module to demonstrate an
 interactive command application.
 Usage:
-    the_dojo add_room <room_type> <room_name>...
+    the_dojo create_room <room_type> <room_name>...
     the_dojo add_person <person_name> (FELLOW|STAFF) [wants_accommodation]
     the_dojo (-i | --interactive)
     the_dojo (-h | --help | --version)
@@ -13,7 +13,10 @@ Options:
 
 import sys
 import cmd
+from models.dojo import Dojo
 from docopt import docopt, DocoptExit
+
+my_dojo_object = Dojo()
 
 
 def docopt_cmd(func):
@@ -25,12 +28,12 @@ def docopt_cmd(func):
         try:
             opt = docopt(fn.__doc__, arg)
 
-        except DocoptExit as e:
+        except DocoptExit as exit:
             # The DocoptExit is thrown when the args do not match.
             # We print a message to the user and the usage block.
 
-            print('Invalid Command!')
-            print(e)
+            print('You have entered an invalid command!')
+            print(exit)
             return
 
         except SystemExit:
@@ -53,22 +56,17 @@ class Thedojo (cmd.Cmd):
     prompt = '(the_dojo) '
     file = None
 
-
-    """@docopt_cmd
-    def do_add_room(self, arg):
-        Usage: add_room <room_type> <room_name>...
-
-        print(arg["<room_name>"])
-
-        # print(arg)
-"""
     @docopt_cmd
-    def do_add_person(self, arg):
-        """Usage: add_person <person_name> (FELLOW|STAFF) [wants_accommodation]
-        """
+    def do_add_person(self, args):
+        """Usage: add_person <person_name> (FELLOW|STAFF) [wants_accommodation]"""
+        print(args)
 
+    @docopt_cmd
+    def do_create_room(self, args):
+        """Usage: create_room <room_type> <room_name>..."""
 
-        print(arg)
+        for room_name in args["<room_name>"]:
+            my_dojo_object.create_room(["<room_type>"], room_name)
 
     def do_quit(self, arg):
         """Quit from interface."""
