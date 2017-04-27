@@ -13,6 +13,8 @@ Options:
 
 import sys
 import cmd
+from termcolor import cprint
+from pyfiglet import figlet_format
 from models.dojo import Dojo
 from docopt import docopt, DocoptExit
 
@@ -51,9 +53,14 @@ def docopt_cmd(func):
 
 
 class Thedojo (cmd.Cmd):
-    intro = '\n' + '*****************************************' + '\n' + '' + 'THE DOJO AWAITS YOU' + '\n' + '\n' + 'WELCOME' + '\n' + '*****************************************' + '\n' \
-        + '\n' 'TYPE "help" FOR A LIST OF THE COMMANDS YOU CAN RUN --- OR "quit" TO EXIT' + '\n'
+
+    cprint(figlet_format('the\n' + 'Dojo\n', font='univers'), 'green', attrs=['bold'])
+    intro = ('Welcome To The Dojo \n\nType "help" To View More Commands or "quit" To Exit Applicaton \n\n------------------'
+             '\n\nCOMMANDS \n\n------------------ \n\n1 - add_person <person_name> (FELLOW|STAFF) [wants_accommodation] \n2 - create_room <room_type> <room_name>...')
     prompt = '(the_dojo) '
+
+
+
     file = None
 
     @docopt_cmd
