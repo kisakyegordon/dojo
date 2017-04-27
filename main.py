@@ -54,13 +54,14 @@ class Thedojo (cmd.Cmd):
     file = None
 
 
-    @docopt_cmd
+    """@docopt_cmd
     def do_add_room(self, arg):
-        """Usage: add_room <room_type> <room_name>...
-        """
+        Usage: add_room <room_type> <room_name>...
 
-        print(arg)
+        print(arg["<room_name>"])
 
+        # print(arg)
+"""
     @docopt_cmd
     def do_add_person(self, arg):
         """Usage: add_person <person_name> (FELLOW|STAFF) [wants_accommodation]
