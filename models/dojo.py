@@ -22,7 +22,6 @@ class Dojo(object):
         print(args)
         for rname in args:
 
-            #print([room.room_name for room in self.all_rooms])
             if rname not in [room.room_name for room in self.all_rooms]:
                 # Create Room
                 print ("Creating room")
