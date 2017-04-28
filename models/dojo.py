@@ -135,3 +135,16 @@ class Dojo(object):
                         print('Cannot process the data provided')
         else:
             print('Provide a file, please')
+
+    @staticmethod
+    def generate_random_office():
+        '''
+        Generates a random office that is not full
+        '''
+        available_offices = [room for room in Dojo.office_rooms if len(Dojo.office_rooms[room]) < 6]
+
+        if len(available_offices) > 0:
+            random_office = random.choice(available_offices)
+            return random_office
+        else:
+            print('No offices availble')
