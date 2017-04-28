@@ -38,7 +38,6 @@ class Dojo(object):
                 Dojo.living_space_rooms[current_room.room_name.upper()]
                 print('Living space called %s created succesfully' % room_name)
 
-
     @staticmethod
     def add_person(firstname, lastname, position, wants_accomodation='N'):
         '''
@@ -70,3 +69,49 @@ class Dojo(object):
                 Dojo.office_rooms[random_office].append(new_fellow.full_name.upper())
                 print("Added: %s and allocated them to an office %s: " % (new_fellow.full_name, random_office))
 
+            else:
+                Dojo.office_rooms[random_office].append(new_fellow.full_name.upper())
+                print("Added: %s and allocated them to %s: " % (new_fellow.full_name, random_office))
+                Dojo.living_space_rooms[random_ls].append(new_fellow.full_name.upper())
+                print("Added: %s and allocated them to %s: " % (new_fellow.full_name, random_ls))
+
+        elif position.upper() == 'F':
+            new_fellow = Fellow(person_id, firstname, lastname)
+            Dojo.staff_and_fellows[new_fellow.full_name.upper()] = position
+            Dojo.fellows.append(new_fellow.full_name.upper())
+            random_office = Dojo.generate_random_office()
+            if not random_office:
+                Dojo.unallocated_people[new_fellow.full_name.upper()] = position
+                print('Added %s to the unallocated list' % new_fellow.full_name)
+            else:
+                Dojo.office_rooms[random_office].append(new_fellow.full_name.upper())
+                print("Added: %s and allocated them to %s: " % (new_fellow.full_name, random_office))
+
+        elif position.upper() == 'S' and wants_accomodation.upper() == 'Y':
+            new_staff = Staff(person_id, firstname, lastname)
+            Dojo.staff_and_fellows[new_staff.full_name.upper()] = position
+            Dojo.staff.append(new_staff.full_name)
+            random_office = Dojo.generate_random_office()
+            if not random_office:
+                Dojo.unallocated_people[new_staff.full_name.upper()] = position
+                print('Added %s to the unallocated list' % new_staff.full_name)
+                print('Staff cannot be llocated a living space')
+            else:
+                Dojo.office_rooms[random_office].append(new_staff.full_name.upper())
+                print("Added: %s and allocated them to %s: " % (new_staff.full_name, random_office))
+                print('Staff cannot be llocated a living space')
+
+        elif position.upper() == 'S':
+            new_staff = Staff(person_id, firstname, lastname)
+            Dojo.staff_and_fellows[new_staff.full_name.upper()] = position
+            Dojo.staff.append(new_staff.full_name.upper())
+            random_office = Dojo.generate_random_office()
+            if not random_office:
+                Dojo.unallocated_people[new_staff.full_name.upper()] = position
+                print('Added %s to the unallocated list' % new_staff.full_name)
+            else:
+                Dojo.office_rooms[random_office].append(new_staff.full_name.upper())
+                print("Added: %s and allocated them to %s: " % (new_staff.full_name, random_office))
+
+        else:
+            print('%s is not a valid position.' % position)
