@@ -4,8 +4,6 @@
 ## INSTALLATION
 > Run python main.py -i
 
-> Almighty God +
-> The Andela community & Group mates.
 
 ## CONDITIONS
 
