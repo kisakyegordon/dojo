@@ -163,3 +163,26 @@ class Dojo(object):
             return random_ls
         else:
             print('No living space available')
+
+
+    @staticmethod
+    def reallocate_person_to_office(full_name, new_room_name):
+        '''
+        use the person full name to remove the person from one office
+        to another
+        '''
+        full_name = full_name.upper()
+        if not full_name in Dojo.staff_and_fellows:
+            return 'The person called %s does not exist' % full_name
+
+        if len(Dojo.office_rooms[new_room_name]) == 6:
+            return '%s is already full' % new_room_name
+
+        if full_name in Dojo.office_rooms[new_room_name]:
+            return '%s is already allocated to %s' % (full_name, new_room_name)
+
+        for room, members in list(Dojo.office_rooms.items()):
+            if full_name in members:
+                Dojo.office_rooms[room].remove(full_name)
+                Dojo.office_rooms[new_room_name].append(full_name)
+                print('%s has been reallocated to %s ' % (full_name, new_room_name))
