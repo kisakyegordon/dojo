@@ -1,7 +1,7 @@
 """
 Usage:
     create_room <room_type> <room_name>
-    add_person <person_id> <first_name> <last_name> <F|S> [--wants_accomodation=N]
+    add_person  <first_name> <last_name> <F|S> [--wants_accomodation=N]
     reallocate_person <firstname> <lastname> <new_room_name>
     load_people <filename>
     print_allocations [--o=filename]
@@ -62,15 +62,16 @@ class DojoApplication(cmd.Cmd):
     """ Calling the create_room function from models/dojo.py """
     @docopt_cmd
     def do_create_room(self, arg):
-        '''Usage: create_room <room_type> <room_name>...'''
+        """Usage: create_room <room_type> <room_name>..."""
         room_name = arg["<room_name>"]
         room_type = arg["<room_type>"]
         Dojo.create_room(room_type, room_name)
 
     """ Calling the add_person function from models/dojo.py """
+
     @docopt_cmd
     def do_add_person(self, arg):
-        '''Usage: add_person <firstname> <lastname> <position> [--wants_accomodation=N] '''
+        """Usage: add_person <firstname> <lastname> <position> [--wants_accomodation=N] """
 
         first_name = arg["<firstname>"]
         last_name = arg["<lastname>"]
@@ -81,7 +82,7 @@ class DojoApplication(cmd.Cmd):
     """ Calling the load_people function from models/dojo.py """
     @docopt_cmd
     def do_load_people(self, arg):
-        ''' Usage: load_people <filename>'''
+        """ Usage: load_people <filename>"""
         file_name = arg["<filename>"]
         if os.path.exists(file_name):
             Dojo.load_people(file_name)
@@ -91,7 +92,7 @@ class DojoApplication(cmd.Cmd):
     """ Calling the reallocate_person function from models/dojo.py """
     @docopt_cmd
     def do_reallocate_person(self, arg):
-        ''' Usage: reallocate_person <firstname> <lastname> <new_room_name>'''
+        """ Usage: reallocate_person <firstname> <lastname> <new_room_name>"""
         first_name = arg["<firstname>"]
         last_name = arg["<lastname>"]
         full_name = first_name + " " + last_name
@@ -107,14 +108,14 @@ class DojoApplication(cmd.Cmd):
     """ Calling the print_room function from models/dojo.py """
     @docopt_cmd
     def do_print_room(self, arg):
-        ''' Usage: print_room <room_name>'''
+        """ Usage: print_room <room_name>"""
         room_name = arg["<room_name>"]
         Dojo.print_room(room_name)
 
     """ Calling the print_allocations function from models/dojo.py """
     @docopt_cmd
     def do_print_allocations(self, arg):
-        '''Usage: print_allocations [--o=filename] '''
+        """Usage: print_allocations [--o=filename] """
         filename = arg["--o"]
 
         Dojo.print_allocations(filename)
@@ -122,14 +123,14 @@ class DojoApplication(cmd.Cmd):
     """ Calling the print_unallocated function from models/dojo.py """
     @docopt_cmd
     def do_print_unallocated(self, arg):
-        '''Usage: print_unallocated [--o=filename] '''
+        """Usage: print_unallocated [--o=filename] """
         filename = arg["--o"]
 
         Dojo.print_unallocated(filename)
 
     """ Exit From docopt """
     def do_quit(self, arg):
-        '''Usage: quit application '''
+        """Usage: quit application """
 
         exit()
 
