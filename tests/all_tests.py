@@ -120,16 +120,3 @@ class TestDojo(TestCase):
         response = Dojo.reallocate_person_to_office('mundi james', 'blue')
         self.assertEqual(response, 'MUNDI JAMES is already allocated to blue')
 
-    @mock.patch('app.Dojo.open')
-    def test_load_people_calls_open_function(self, mock_open):
-        Dojo.load_people('dojo.txt')
-        mock_open.assert_called_with('dojo.txt')
-
-    def test_load_people_read_lines(self):
-        dirname = os.path.dirname(os.path.realpath(__file__))
-        with mock.patch.object(Dojo, 'add_person') as mock_method:
-            Dojo.load_people(os.path.join(dirname, 'dojo.txt'))
-        mock_method.assert_any_call(firstname='OLUWAFEMI', lastname='SULE', position='F', wants_accomodation='Y')
-        mock_method.assert_any_call(firstname='LEIGH', lastname='RILEY', position='S', wants_accomodation='N')
-        self.assertEqual(mock_method.call_count, 7)
-
