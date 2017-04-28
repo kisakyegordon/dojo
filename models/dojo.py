@@ -38,3 +38,15 @@ class Dojo(object):
                 Dojo.living_space_rooms[current_room.room_name.upper()]
                 print('Living space called %s created succesfully' % room_name)
 
+
+    @staticmethod
+    def add_person(firstname, lastname, position, wants_accomodation='N'):
+        '''
+        Add person details to the system
+        '''
+        full_name = firstname + " " + lastname
+        person_id = len(list(Dojo.staff_and_fellows)) + 1
+
+        if full_name.upper() in Dojo.staff_and_fellows:
+            print ('Person %s already exists.' % full_name)
+
