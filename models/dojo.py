@@ -186,3 +186,26 @@ class Dojo(object):
                 Dojo.office_rooms[room].remove(full_name)
                 Dojo.office_rooms[new_room_name].append(full_name)
                 print('%s has been reallocated to %s ' % (full_name, new_room_name))
+
+
+    @staticmethod
+    def reallocate_person_to_ls(full_name, new_room_name):
+        '''
+        use the person full name to remove the person from one livingspace
+        to another, should not reallocate to the same room or a room that is full
+        '''
+        full_name = full_name.upper()
+        if not full_name in Dojo.staff_and_fellows:
+            return 'The person called %s does not exist' % full_name
+
+        if len(Dojo.living_space_rooms[new_room_name]) == 4:
+            return '%s is already full' % new_room_name
+
+        if full_name in Dojo.living_space_rooms[new_room_name]:
+            return '%s is already allocated to %s' % (full_name, new_room_name)
+
+        for room, members in list(Dojo.living_space_rooms.items()):
+            if full_name in members:
+                Dojo.living_space_rooms[room].remove(full_name)
+                Dojo.living_space_rooms[new_room_name].append(full_name)
+                print('%s has been reallocated to %s ' % (full_name, new_room_name))
