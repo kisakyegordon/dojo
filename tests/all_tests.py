@@ -15,3 +15,16 @@ class TestDojo(TestCase):
         new_room_count = len(Dojo.all_rooms)
         self.assertEqual(previous_room_count + 1, new_room_count)
 
+    def test_create_ls(self):
+        previous_room_count = len(Dojo.all_rooms)
+        self.assertFalse('mutesa' in Dojo.all_rooms)
+        Dojo.create_room('livingspace', 'mutesa')
+        self.assertTrue('mutesa'.upper() in Dojo.all_rooms)
+        new_room_count = len(Dojo.all_rooms)
+        self.assertEqual(previous_room_count + 1, new_room_count)
+
+    def test_room_does_not_exist(self):
+        Dojo.create_room('office', 'blue_office')
+        self.assertTrue('blue_office' in Dojo.all_rooms)
+        response = Dojo.create_room('office', 'blue_office')
+        self.assertEqual(response, "Room already exists")
