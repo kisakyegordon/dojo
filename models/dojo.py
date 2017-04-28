@@ -115,3 +115,23 @@ class Dojo(object):
 
         else:
             print('%s is not a valid position.' % position)
+
+    @staticmethod
+    def load_people(filename):
+        '''
+        Loads people to the system from a text file.
+        '''
+        if filename:
+            with open(filename) as people_file:
+                for line in people_file:
+                    people_details = line.split()
+                    if len(people_details) == 4:
+                        Dojo.add_person(firstname=people_details[0], lastname=people_details[1],
+                                        position=people_details[2], wants_accomodation=people_details[3])
+                    elif len(people_details) == 3:
+                        Dojo.add_person(firstname=people_details[0], lastname=people_details[1],
+                                        position=people_details[2], wants_accomodation='N')
+                    else:
+                        print('Cannot process the data provided')
+        else:
+            print('Provide a file, please')
