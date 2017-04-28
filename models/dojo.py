@@ -209,3 +209,21 @@ class Dojo(object):
                 Dojo.living_space_rooms[room].remove(full_name)
                 Dojo.living_space_rooms[new_room_name].append(full_name)
                 print('%s has been reallocated to %s ' % (full_name, new_room_name))
+
+
+    @staticmethod
+    def print_room(room_name):
+        '''
+        prints a room and all the people allocated to that room
+        '''
+        if room_name.upper() in Dojo.office_rooms.keys():
+            print(room_name.upper())
+            print('-' * 50)
+            print(', '.join(Dojo.office_rooms[room_name.upper()]))
+
+        elif room_name.upper() in Dojo.living_space_rooms.keys():
+            print(room_name.upper())
+            print('-' * 50)
+            print(' ,'.join(Dojo.living_space_rooms[room_name.upper()]))
+        else:
+            print('There is no room called %s in Dojo' % room_name)
