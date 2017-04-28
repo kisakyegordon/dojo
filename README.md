@@ -1,5 +1,12 @@
 # DOJO ROOM ALLOCATION TO STAFF & FELLOWS
 
+
+## INSTALLATION
+> Run python main.py -i
+
+> Almighty God +
+> The Andela community & Group mates.
+
 ## CONDITIONS
 
 * Office has capacity of 6 people.
