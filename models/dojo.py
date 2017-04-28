@@ -116,6 +116,7 @@ class Dojo(object):
         else:
             print('%s is not a valid position.' % position)
 
+
     @staticmethod
     def load_people(filename):
         '''
@@ -136,6 +137,7 @@ class Dojo(object):
         else:
             print('Provide a file, please')
 
+
     @staticmethod
     def generate_random_office():
         '''
@@ -148,3 +150,16 @@ class Dojo(object):
             return random_office
         else:
             print('No offices availble')
+
+    @staticmethod
+    def generate_random_living_space():
+        '''
+        Generate a random living space that is not full_occupied
+        '''
+        available_ls = [room for room in Dojo.living_space_rooms if len(Dojo.living_space_rooms[room]) < 4]
+
+        if len(available_ls) > 0:
+            random_ls = random.choice(available_ls)
+            return random_ls
+        else:
+            print('No living space available')
