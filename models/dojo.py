@@ -111,7 +111,6 @@ class Dojo(object):
         else:
             print('%s is not a valid position.' % position)
 
-
     @staticmethod
     def load_people(filename):
         """Loads people to the system from a text file."""
@@ -130,7 +129,6 @@ class Dojo(object):
                         print('Cannot process the data provided')
         else:
             print('Provide a file, please')
-
 
     @staticmethod
     def generate_random_office():
