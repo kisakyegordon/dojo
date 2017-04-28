@@ -14,13 +14,9 @@ class Dojo(object):
 
     @staticmethod
     def create_room(room_type, room_name):
-        '''
-        Check that the room does not exist and determine what type of room it is
-
-        '''
+        """Check that the room does not exist and determine what type of room it is"""
 
         for room_name in room_name:
-            # room_name=name_of_room[0]
             if room_name in Dojo.all_rooms:
                 print('Room already exists')
                 return 'Room already exists'
@@ -40,9 +36,8 @@ class Dojo(object):
 
     @staticmethod
     def add_person(firstname, lastname, position, wants_accomodation='N'):
-        '''
-        Add person details to the system
-        '''
+        """Add person details to the system"""
+
         full_name = firstname + " " + lastname
         person_id = len(list(Dojo.staff_and_fellows)) + 1
 
@@ -119,9 +114,8 @@ class Dojo(object):
 
     @staticmethod
     def load_people(filename):
-        '''
-        Loads people to the system from a text file.
-        '''
+        """Loads people to the system from a text file."""
+
         if filename:
             with open(filename) as people_file:
                 for line in people_file:
@@ -140,9 +134,8 @@ class Dojo(object):
 
     @staticmethod
     def generate_random_office():
-        '''
-        Generates a random office that is not full
-        '''
+        """Generates a random office that is not full"""
+
         available_offices = [room for room in Dojo.office_rooms if len(Dojo.office_rooms[room]) < 6]
 
         if len(available_offices) > 0:
@@ -153,9 +146,8 @@ class Dojo(object):
 
     @staticmethod
     def generate_random_living_space():
-        '''
-        Generate a random living space that is not full_occupied
-        '''
+        """Generate a random living space that is not full_occupied"""
+
         available_ls = [room for room in Dojo.living_space_rooms if len(Dojo.living_space_rooms[room]) < 4]
 
         if len(available_ls) > 0:
@@ -164,13 +156,11 @@ class Dojo(object):
         else:
             print('No living space available')
 
-
     @staticmethod
     def reallocate_person_to_office(full_name, new_room_name):
-        '''
-        use the person full name to remove the person from one office
-        to another
-        '''
+        """
+        use the person full name to remove the person from one office to another"""
+
         full_name = full_name.upper()
         if not full_name in Dojo.staff_and_fellows:
             return 'The person called %s does not exist' % full_name
@@ -187,13 +177,13 @@ class Dojo(object):
                 Dojo.office_rooms[new_room_name].append(full_name)
                 print('%s has been reallocated to %s ' % (full_name, new_room_name))
 
-
     @staticmethod
     def reallocate_person_to_ls(full_name, new_room_name):
-        '''
+        """
         use the person full name to remove the person from one livingspace
         to another, should not reallocate to the same room or a room that is full
-        '''
+        """
+
         full_name = full_name.upper()
         if not full_name in Dojo.staff_and_fellows:
             return 'The person called %s does not exist' % full_name
@@ -210,12 +200,10 @@ class Dojo(object):
                 Dojo.living_space_rooms[new_room_name].append(full_name)
                 print('%s has been reallocated to %s ' % (full_name, new_room_name))
 
-
     @staticmethod
     def print_room(room_name):
-        '''
-        prints a room and all the people allocated to that room
-        '''
+        """prints a room and all the people allocated to that room"""
+
         if room_name.upper() in Dojo.office_rooms.keys():
             print(room_name.upper())
             print('-' * 50)
@@ -228,12 +216,9 @@ class Dojo(object):
         else:
             print('There is no room called %s in Dojo' % room_name)
 
-
     @staticmethod
     def print_allocations(filename=''):
-        '''
-        prints a list of all the people that have been allocated a room
-        '''
+        """prints a list of all the people that have been allocated a room"""
 
         if filename:
             with open(filename, 'w') as allocation:
@@ -265,3 +250,20 @@ class Dojo(object):
                 print('-' * 50)
                 print(', '.join(name))
                 print('=' * 50)
+
+    @staticmethod
+    def print_unallocated(filename=''):
+        """prints a list of people that have not been allocated to a room yet"""
+        if filename:
+            with open(filename, 'w') as unallocated:
+                print("\nWriting to the file .., \n")
+                response = 'People who are not allocated a living space \n'
+                response = response + '-' * 50 + '\n'
+                response = response + ', '.join(Dojo.unallocated_people)
+                unallocated.write(response)
+        else:
+            print('People not in an room')
+            print(', '.join(Dojo.unallocated_people))
+
+
+
