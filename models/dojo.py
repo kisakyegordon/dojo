@@ -227,3 +227,41 @@ class Dojo(object):
             print(' ,'.join(Dojo.living_space_rooms[room_name.upper()]))
         else:
             print('There is no room called %s in Dojo' % room_name)
+
+
+    @staticmethod
+    def print_allocations(filename=''):
+        '''
+        prints a list of all the people that have been allocated a room
+        '''
+
+        if filename:
+            with open(filename, 'w') as allocation:
+                print("\nWriting to the file .., \n")
+                response = 'People in offices \n'
+                for room, name in Dojo.office_rooms.items():
+                    response = response + (room + '\n')
+                    response = response + '-' * 50 + '\n'
+                    response = response + (', '.join(name) + '\n')
+                    allocation.write(response)
+
+                response = 'People in living space \n'
+                for room, name in Dojo.living_space_rooms.items():
+                    response = response + (room + '\n')
+                    response = response + '-' * 50 + '\n'
+                    response = response + (', '.join(name) + '\n')
+                    allocation.write(response)
+        else:
+            print('People in office')
+            for room, name in Dojo.office_rooms.items():
+                print(room)
+                print('-' * 50)
+                print(', '.join(name))
+                print('=' * 50)
+
+            print('People in Living space rooms')
+            for room, name in Dojo.living_space_rooms.items():
+                print(room)
+                print('-' * 50)
+                print(', '.join(name))
+                print('=' * 50)
