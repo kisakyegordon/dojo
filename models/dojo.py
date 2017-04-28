@@ -50,3 +50,23 @@ class Dojo(object):
         if full_name.upper() in Dojo.staff_and_fellows:
             print ('Person %s already exists.' % full_name)
 
+        elif position.upper() == 'F' and wants_accomodation.upper() == 'Y':
+            new_fellow = Fellow(person_id, firstname, lastname)
+            Dojo.staff_and_fellows[new_fellow.full_name.upper()] = position
+            Dojo.fellows.append(new_fellow.full_name.upper())
+            random_office = Dojo.generate_random_office()
+            random_ls = Dojo.generate_random_living_space()
+            if not random_office and not random_ls:
+                Dojo.unallocated_people[new_fellow.full_name.upper()] = position
+                print('Added %s to the unallocated list' % new_fellow.full_name)
+            elif not random_office and random_ls:
+                Dojo.unallocated_people[new_fellow.full_name.upper()] = position
+                print('Added %s to the unallocated list' % new_fellow.full_name)
+                Dojo.living_space_rooms[random_ls].append(new_fellow.full_name.upper())
+                print("Added: %s and allocated them to a living space %s: " % (new_fellow.full_name, random_ls))
+            elif not random_ls and random_office:
+                Dojo.unallocated_people[new_fellow.full_name.upper()] = position
+                print('Added %s to the unallocated list' % new_fellow.full_name)
+                Dojo.office_rooms[random_office].append(new_fellow.full_name.upper())
+                print("Added: %s and allocated them to an office %s: " % (new_fellow.full_name, random_office))
+
