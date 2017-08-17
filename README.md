@@ -1,5 +1,6 @@
 # DOJO ROOM ALLOCATION TO STAFF & FELLOWS
 
+https://travis-ci.org/kisakyegordon/dojo.svg?branch=master
 
 ## INSTALLATION
 > Run python main.py -i
