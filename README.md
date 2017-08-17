@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kisakyegordon/dojo.svg?branch=master)](https://travis-ci.org/kisakyegordon/dojo)
 [![Code Climate](https://img.shields.io/codeclimate/github/kabisaict/flow.svg)]()
+[![Coveralls](https://img.shields.io/coveralls/jekyll/jekyll.svg)]()
 
 ## INSTALLATION
 > Run python main.py -i
